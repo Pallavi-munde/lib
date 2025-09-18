@@ -2,6 +2,28 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
+final ThemeData cleanGreenTheme = ThemeData(
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: Colors.green,
+    primary: Colors.green[700]!,
+    secondary: Colors.lightGreen[400]!,
+    background: Colors.white,
+    surface: Colors.green[50]!,
+  ),
+  scaffoldBackgroundColor: Colors.green[50],
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.green,
+    foregroundColor: Colors.white,
+  ),
+  navigationBarTheme: NavigationBarThemeData(
+    backgroundColor: Colors.green[100],
+    indicatorColor: Colors.green[700],
+    labelTextStyle: MaterialStateProperty.all(
+      const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+    ),
+  ),
+);
+
 void main() {
   runApp(const BlueCarbonApp());
 }
@@ -13,36 +35,7 @@ class BlueCarbonApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Blue Carbon MRV',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF0D47A1),
-          brightness: Brightness.light,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          titleTextStyle: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: Colors.black87,
-          ),
-        ),
-        cardTheme: CardTheme(
-          elevation: 2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-        filledButtonTheme: FilledButtonThemeData(
-          style: FilledButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          ),
-        ),
-      ),
+      theme: cleanGreenTheme,
       home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
